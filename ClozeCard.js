@@ -1,9 +1,3 @@
-// module.exports = ClozeCard;
-// var text = process.argv[2];
-// var cloze = process.argv[3];
-
-
-
 function ClozeCard(fullText, cloze) {
     this.fullText = fullText;
     this.cloze = cloze;
@@ -11,16 +5,15 @@ function ClozeCard(fullText, cloze) {
         console.log("'" + fullText + "' does not contain '" + cloze + "'");
     }
 
-    this.partial = function() {
+    this.partial = fullText.replace(cloze, "...");
 
-        var newPartial = fullText.replace(cloze, "...");
-
-        console.log(newPartial);
-    }
-
+  
 }
 var water = new ClozeCard("water is good for you", "water");
 
 console.log(water.fullText);
 console.log(water.cloze);
-console.log(water.partial());
+console.log(water.partial);
+
+
+module.exports = ClozeCard;
